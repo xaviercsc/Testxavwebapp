@@ -1,9 +1,17 @@
-function calculate() {
-  var num1 = parseFloat(document.getElementById('num1').value);
-  var num2 = parseFloat(document.getElementById('num2').value);
-  var num3 = parseFloat(document.getElementById('num3').value);
+let display = document.getElementById('display');
 
-  var result = num1 + num2 + num3;
+function appendToDisplay(value) {
+  display.value += value;
+}
 
-  document.getElementById('result').textContent = 'Result: ' + result;
+function clearDisplay() {
+  display.value = '';
+}
+
+function calculateResult() {
+  try {
+    display.value = eval(display.value);
+  } catch (error) {
+    display.value = 'Error';
+  }
 }
